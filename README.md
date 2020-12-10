@@ -32,7 +32,7 @@ https://url-kisalt.tk
 
 ## İletişim
 
-HyperZone#9999 – [https://discord.gg/Qw3pzE7](https://discord.gg/Qw3pzE7)
+HyperZone#1243 – [https://discord.gg/Qw3pzE7](https://discord.gg/Qw3pzE7)
 
 [https://github.com/hyperzone0/link-shortener](https://github.com/hyperzone0/link-shortener)
 
