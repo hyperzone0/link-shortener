@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<link rel="shortcut icon" href="https://cdn3.iconfinder.com/data/icons/web-15/128/RSSvgLink-2-512.png" />
+    <title>Url Kısalt - Kısa Url İçin Bir Bağlantı Oluşturun!</title>
+
+     <meta name="title" content="Url Kısalt - Kısa Url İçin Bir Bağlantı Oluşturun!">
+     <meta name="description" content="Kolayca linklerinizi kısaltabilirsiniz.">
+     <meta name="keywords" content="urlkısalt,urlkisalt">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <meta name="theme-color" content="#FF0000">
+     <meta property="og:theme-color" content="#FF0000" />
+     <meta property="og:image" content="https://cdn3.iconfinder.com/data/icons/web-15/128/RSSvgLink-2-512.png"/>
+
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="dist/clipboard.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+ <body>
+    
+    
+    
+<div class="alert2">
+      <% if(messages.success) { %>            
+<div  id="benbiridyim" class="alert alert-success alert-dismissible">
+
+  <a class="close" data-dismiss="alert"><img id="button1" onclick="CopyToClipboard('div1')" src="https://img.icons8.com/windows/32/000000/copy.png" class="copy"/></a>
+<div class="alertbox">
+  
+  </div>
+  <strong  style="    top: 10%;   ">Linkin kısaltıldı!&nbsp;&nbsp; </strong><a href="<%= "BURASI" + messages.success %>"  target="_blank" class="alert-link"  style="    top: 10%;   "  id="div1">BURASI2<%= messages.success %></a>
+ </div>
+
+      <% } %>
+      <% if(messages.error) { %>
+          <div class="alert alert-danger">
+              <span><%= messages.error %></span>
+          </div>
+      <% } %>
+
+    </div>
+
+
+   
+<div class="signupSection">
+  <div class="info">
+
+    <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+      <button type="submit" id="discord-btn"  href="javascript:void()" onclick="javascript:open('https://discord.gg/Qw3pzE7', 'chat', 'toolbar=no,resizable=yes,scrollbars=yes,menubar=no,width=700,height=600,left=' + (window.innerWidth - 700) / 2 + ',top=' + (window.innerHeight - 600) / 2 + '')" style="display: inline;">Discord</button>
+      <button type="submit" id="discord-btn" onclick="window.location.href='https://github.com/HyperZone0' " >GitHub</button>
+
+      
+
+
+
+    
+<div class="footer">
+<a>Copyright © Fyrex Development. Tüm hakları saklıdır!</a>
+    </div>
+  </div>
+  <form action="/newlink" method="POST" class="signupForm" name="signupform">
+    <h2>URL Kısalt</h2>
+    <ul class="noBullet">
+      <li>
+        <label for="username"></label>
+        <input class="inputFields" autocomplete="off" name="link" type="search" placeholder="Bağlantınızı kısaltın" value="" />
+      </li>      
+      <li>
+
+      <label for="password" >Kısa Link Domaini:</label>
+<br>
+      <select id="mySelect" class="inputFields" >
+        <option style="background-color: #111;" value= "https://url-kisalt.tk/" selected>url-kisalt.tk</option>
+        <option style="background-color: #111;" value= "https://mcgg.cf/" >mcgg.cf</option>
+        <option style="background-color: #111;" value= "https://lolgg.ga/" >lolgg.ga</option>
+        <option style="background-color: #111;" value= "https://dcgg.tk/" >dcgg.tk</option>
+        <option style="background-color: #111;" value= "https://mcpre.tk/" >mcpre.tk</option>
+      </select> 
+
+      </li>
+      <li id="center-btn">
+
+        <input type="submit" id="join-btn" name="join" alt="Kısalt">
+      </li>
+    </ul>
+  </form>
+</div>
+   
+  </body>
+</html>
+
+
+
+<script>
+    var alertRedInput = "#8C1010";
+var defaultInput = "rgba(10, 180, 180, 1)";
+
+function userNameValidation(usernameInput) {
+    var username = document.getElementById("username");
+    var issueArr = [];
+    if (/[-!@#$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(usernameInput)) {
+        issueArr.push("No special characters!");
+    }
+    if (issueArr.length > 0) {
+        username.setCustomValidity(issueArr);
+        username.style.borderColor = alertRedInput;
+    } else {
+        username.setCustomValidity("");
+        username.style.borderColor = defaultInput;
+    }
+}
+
+function passwordValidation(passwordInput) {
+    var password = document.getElementById("password");
+    var issueArr = [];
+    if (!/^.{7,15}$/.test(passwordInput)) {
+        issueArr.push("Password must be between 7-15 characters.");
+    }
+    if (!/\d/.test(passwordInput)) {
+        issueArr.push("Must contain at least one number.");
+    }
+    if (!/[a-z]/.test(passwordInput)) {
+        issueArr.push("Must contain a lowercase letter.");
+    }
+    if (!/[A-Z]/.test(passwordInput)) {
+        issueArr.push("Must contain an uppercase letter.");
+    }
+    if (issueArr.length > 0) {
+        password.setCustomValidity(issueArr.join("\n"));
+        password.style.borderColor = alertRedInput;
+    } else {
+        password.setCustomValidity("");
+        password.style.borderColor = defaultInput;
+    }
+}
+    </script>
+
+
+
+
+
+<script>
+  
+  
+
+</script>
+
+
+
+
+
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #111;
+  background-repeat: no-repeat;
+}
+
+.signupSection {
+  background: url(https://source.unsplash.com/TV2gg2kZD1o/1600x800);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 450px;
+  text-align: center;
+  display: flex;
+  color: white;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
+}
+
+.info {
+  width: 45%;
+  background: rgba(20, 20, 20, .8);
+  padding: 30px 0;
+  border-right: 5px solid rgba(30, 30, 30, .8);
+  h2 {
+    padding-top: 30px;
+    font-weight: 300;
+  }
+  p {
+    font-size: 18px;
+  }
+  .icon {
+    font-size: 8em;
+    padding: 20px 0;
+    color: rgba(10, 180, 180, 1);
+  }
+}
+
+
+    .alert2    {
+      margin-left:auto;
+      margin-right:auto;
+      width:100%;
+      width: 700px;
+ margin-top: 30px
+   }
+
+
+
+.signupForm {
+  width: 70%;
+  padding: 30px 0;
+  background: rgba(20, 40, 40, .8);
+  transition: .2s;
+  h2 {
+    font-weight: 300;
+  }
+}
+
+.inputFields {
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  border: 1px solid rgba(10, 180, 180, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(20, 20, 20, .2);
+  
+  color: white;
+  outline: none;
+}
+
+
+.noBullet {
+  list-style-type: none;
+  padding: 0;
+}
+
+#join-btn {
+  border: 1px solid rgba(10, 180, 180, 1);
+  background: rgba(20, 20, 20, .6);
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: .4s;
+  &:hover {
+    background: rgba(20, 20, 20, .8);
+    padding: 10px 80px;
+  }
+}
+#discord-btn {
+  border: 1px solid rgba(10, 180, 180, 1);
+  background: rgba(20, 20, 20, .6);
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: .4s;
+  &:hover {
+    background: rgba(20, 20, 20, .8);
+    padding: 10px 80px;
+  }
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    left: 20%;
+    width: 100%;
+    height: 50px;
+    padding:15px;
+}
+
+
+
+
+    </style>
+
+
+<script>
+  document.querySelector("form").onsubmit=function(){
+    if(localStorage){
+      localStorage.setItem("l",document.querySelector("#mySelect").value);
+    }
+    else if(navigator.cookieEnabled){
+     document.cookie="l="+document.querySelector("#mySelect").value; 
+    }
+    else{
+      alert("Tarayıcınız ne localStorage destekliyor ne de cookie destekliyor.");
+      return false;
+    }
+  };
+  if(document.querySelector("#benbiridyim")){
+    hm=document.querySelector("#benbiridyim");
+    if(localStorage.getItem("l")){
+      ehm=localStorage.getItem("l");
+    }
+    else if(document.cookie.indexOf("l")!=-1){
+      ehm=document.cookie.split(";").split("l=")[1];
+    }
+    else{
+      ehm="Tarayıcınız ne localStorage destekliyor ne de cookie destekliyor. O yüzden link alınamadı. ";
+    }
+    hm.innerHTML=hm.innerHTML.replace("BURASI",ehm);
+    hm.innerHTML=hm.innerHTML.replace("BURASI2",ehm);
+    hm.innerHTML=hm.innerHTML.replace("BURASI3",ehm);
+  }
+
+
+function CopyToClipboard(containerid) {
+  if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(containerid));
+    range.select().createTextRange();
+    document.execCommand("copy");
+  } else if (window.getSelection) {
+    var range = document.createRange();
+    range.selectNode(document.getElementById(containerid));
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    alert("Link kopyalandı!")
+  }
+}
+
+</script>
+
