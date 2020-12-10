@@ -3,7 +3,7 @@
 
 Sitenin görüntüsü:
 
-![](https://cdn.discordapp.com/attachments/767825640496824330/786569684425900082/unknown.png)
+![](https://cdn.discordapp.com/attachments/767825640496824330/786569860020043776/unknown.png)
 
 ## Modüller
 
